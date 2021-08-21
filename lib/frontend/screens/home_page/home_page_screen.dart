@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,91 +20,95 @@ class HomePageScreen extends StatelessWidget {
     return Scaffold(
       // backgroundColor: Colors.red,
       body: SafeArea(
-        child: Column(
+        child: Stack(
           children: [
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: PAGE_HORIZONTAL_PADDING, vertical: 10),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      padding: const EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(100000)),
-                        border: Border.all(
-                          color: MaterialColor(0xFFB4B4B4, color)
-                        ),
-                      ),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: TextFormField(
-                              decoration: InputDecoration(
-                                hintText: 'Search for a product',
-                                border: OutlineInputBorder(
-                                  borderSide: BorderSide(width: 0, style: BorderStyle.none)
-                                ),
-                                contentPadding: const EdgeInsets.symmetric(horizontal: 16)
-                              ),
-                            ),
-                          ),
-                          CircleAvatar(
-                            backgroundColor: primaryColor,
-                            child: Icon(IconlyLight.search, color: Colors.white,),
-                          )
-                        ],
-                      ),
+              child: SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    SizedBox(height: 60,),
+                    HomePageBillBoard(),
+                    SizedBox(height: 8,),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: PAGE_HORIZONTAL_PADDING),
+                      child: HomePageTopSellingScreen(),
                     ),
-                  ),
-                  SizedBox(width: 35,),
-                  Stack(
-                    children: [
-                      Icon(IconlyLight.bag, size: 38,),
-                      Positioned(
-                        top: 5, right: 3,
-                        child: CircleAvatar(
-                          radius: 8,
-                          backgroundColor: MaterialColor(0xFFFF5700, color),
-                          child: Text('15', style: TextStyle(
-                            fontSize: 8, color: Colors.white
-                          ),),
-                        ),
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-            SizedBox(height: 8,),
-            Expanded(
-              child: Container(
-                child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      HomePageBillBoard(),
-                      SizedBox(height: 8,),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: PAGE_HORIZONTAL_PADDING),
-                        child: HomePageTopSellingScreen(),
-                      ),
-                      SizedBox(height: 16,),
-                      PopularCategoriesScreen(),
-                      SizedBox(height: 16,),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: PAGE_HORIZONTAL_PADDING),
-                        child: HomePageFlashSaleScreen()
-                      ),
-                      SizedBox(height: 16,),
-                      TopBrandsScreen(),
-                      SizedBox(height: 16,),
-                      RecommendedForYouScreen(),
-                      SizedBox(height: 16,),
-                    ],
-                  ),
+                    SizedBox(height: 16,),
+                    PopularCategoriesScreen(),
+                    SizedBox(height: 16,),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: PAGE_HORIZONTAL_PADDING),
+                      child: HomePageFlashSaleScreen()
+                    ),
+                    SizedBox(height: 16,),
+                    TopBrandsScreen(),
+                    SizedBox(height: 16,),
+                    RecommendedForYouScreen(),
+                    SizedBox(height: 16,),
+                  ],
                 ),
               ),
-            )
+            ),
+            Positioned(
+              top: 0,left: 0,right: 0,
+              child: Container(
+                decoration: BoxDecoration(
+                    color: Colors.white.withOpacity(.9)
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: PAGE_HORIZONTAL_PADDING, vertical: 10),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 5),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(100000)),
+                          border: Border.all(
+                              color: MaterialColor(0xFFB4B4B4, color)
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            Expanded(
+                              child: TextFormField(
+                                decoration: InputDecoration(
+                                    hintText: 'Search for a product',
+                                    border: OutlineInputBorder(
+                                        borderSide: BorderSide(width: 0, style: BorderStyle.none)
+                                    ),
+                                    contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 0)
+                                ),
+                              ),
+                            ),
+                            CircleAvatar(
+                              backgroundColor: primaryColor,
+                              child: Icon(IconlyLight.search, color: Colors.white,),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: 35,),
+                    Stack(
+                      children: [
+                        Icon(IconlyLight.bag, size: 38,),
+                        Positioned(
+                          top: 5, right: 3,
+                          child: CircleAvatar(
+                            radius: 8,
+                            backgroundColor: MaterialColor(0xFFFF5700, color),
+                            child: Text('15', style: TextStyle(
+                                fontSize: 8, color: Colors.white
+                            ),),
+                          ),
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

@@ -32,7 +32,7 @@ class _HomePageBillBoardState extends State<HomePageBillBoard> {
             itemBuilder: (context, index) => Image.asset('assets/images/banners/2de9476912a17d9d16f5efdf0c2147d7.png'),
           ),
           Positioned(
-            bottom: 10,
+            bottom: 20,
             left: 0, right: 0,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -44,7 +44,7 @@ class _HomePageBillBoardState extends State<HomePageBillBoard> {
                     borderRadius: BorderRadius.all(Radius.circular(10000))
                   ),
                   margin: const EdgeInsets.symmetric(horizontal: 2),
-                  padding: const EdgeInsets.symmetric(horizontal: 1),
+                  padding: const EdgeInsets.symmetric(horizontal: .5),
                   child: CircleAvatar(
                     backgroundColor: index == currentBanner ? bannerIndicatorColorStyle['enabled'] : bannerIndicatorColorStyle['disabled'], radius: 5,
                   ),
