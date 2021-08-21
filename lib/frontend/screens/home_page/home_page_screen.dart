@@ -58,6 +58,7 @@ class HomePageScreen extends StatelessWidget {
                 ),
                 padding: const EdgeInsets.symmetric(horizontal: PAGE_HORIZONTAL_PADDING, vertical: 10),
                 child: Row(
+
                   children: [
                     Expanded(
                       child: Container(
